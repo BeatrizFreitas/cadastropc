@@ -1,3 +1,22 @@
+new Vue({
+    el:'#tabela',
+    data() {
+        return {
+            linhas: ''
+        }
+    },
+    mounted: function() {
+        var dadosCadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
+
+        this.linhas = dadosCadastrados;
+
+
+    }
+})
+
+
+
+/*
 function criaTabela() {
 
     var cadastros = JSON.parse(localStorage.getItem('Cadastro'));
@@ -7,7 +26,6 @@ function criaTabela() {
 
     for( var i = 0 ; i < qtdCadastros ; i++ ) {
         var linha = tabela.insertRow(i);
-
 
         var celulaNome = linha.insertCell(0);
         var celulaMarcaPlacaMae = linha.insertCell(1);
@@ -19,7 +37,7 @@ function criaTabela() {
         var celulaQuantidadeHD = linha.insertCell(7);
         var celulaCapacidadeHD = linha.insertCell(8);
         var celulaMarcaProcessador = linha.insertCell(9);
-        var celulaVelocidadeProcessador = linha.insertCell(10);       
+        var celulaVelocidadeProcessador = linha.insertCell(10);
         
         celulaNome.innerHTML = cadastros[i].Nome;
         celulaMarcaPlacaMae.innerHTML = cadastros[i].PlacaMaeMarca;
@@ -32,8 +50,7 @@ function criaTabela() {
         celulaCapacidadeHD.innerHTML = cadastros[i].HdCapadiade;
         celulaMarcaProcessador.innerHTML = cadastros[i].ProcessadorMarca;
         celulaVelocidadeProcessador.innerHTML = cadastros[i].ProcessadorVelocidade;
-
-
     }
 
 }
+*/

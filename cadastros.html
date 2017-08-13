@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>   
-    <link rel="stylesheet" href="css/style.css"
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
 </head>
 
-<body onload="criaTabela()">
+<body>
     <nav>
         <div class="nav-wrapper #7b1fa2 purple darken-2">
             <a href="#" class="brand-logo center">Logo</a>
@@ -22,7 +23,7 @@
     </nav>
 
     <div class="container">
-        <h2 align="center">Computadores Cadastrados</h2>
+        <h3 align="center">Computadores Cadastrados</h3>
     </div><br>
 
     <div class="container">
@@ -39,22 +40,28 @@
                     <th>Quantidade de HDs</th>
                     <th>Capacidade do HD</th> 
                     <th>Marca do Processador</th>
-                    <th>Velocidade do Processador</th>    
+                    <th>Velocidade do Processador</th>
                 </tr>
             </thead>
-    
-            <tbody>
+            <tbody id="tabela">
+                <template v-for="linha in linhas"> 
+                    <tr>
+                        <td>{{ linha.Nome }}</td>
+                        <td>{{ linha.PlacaMaeMarca  }}</td>
+                        <td>{{ linha.PlacaMaeModelo }}</td>
+                        <td>{{ linha.FonteMarca }}</td>
+                        <td>{{ linha.FonteModelo }}</td>
+                        <td>{{ linha.MemoriaQuantidade }}</td>
+                        <td>{{ linha.MemoriaCapacidade }}</td>
+                        <td>{{ linha.HdQuantidade }}</td>
+                        <td>{{ linha.HdCapacidade }}</td>
+                        <td>{{ linha.ProcessadorMarca }}</td>
+                        <td>{{ linha.PorcessadorVelocidade }}</td>
+                    </tr>
+                </template> 
             </tbody>
-
         </table>
-
     </div>
-
-
-
-
-
-
     
     <script src="js/initialize.js"></script>
     <script src="js/tabela.js"></script> 
