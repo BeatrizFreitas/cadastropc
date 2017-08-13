@@ -13,7 +13,7 @@
 
   <body>
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper #7b1fa2 purple darken-2">
                 <a href="#" class="brand-logo center">Logo</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="cadastros.html">Computadores Cadastrados</a></li>
@@ -23,56 +23,90 @@
 
     <div class="container">
         <h2 align="center">Cadastro de Computadores</h2>
-    </div>
+    </div><br>
 
     <div class="container">
-        
-        <div class="row">
-            <h5>Placa Mãe</h5>
-            <div class="input-field col s6">
-                <input id="marca_placamae" type="text" class="validate">
-                <label for="marca_placamae">Marca</label>
+
+        <form id="formulario" onsubmit="cadastraComputador()">
+            <div class="row">
+                    <div class="input-field col s6">
+                        <input id="nome_pc" type="text" class="validate">
+                        <label for="nome_pc">Nome</label>
+                    </div>
+            </div>         
+            <div class="row">
+                <h5>Placa Mãe</h5>
+                <div class="input-field col s6">
+                    <input id="placamae_marca" type="text" class="validate">
+                    <label for="placamae_marca">Marca</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="placamae_modelo" type="text" class="validate">
+                    <label for="placamae_modelo">Modelo</label>
+                </div>
             </div>
-            <div class="input-field col s6">
-                <input id="modelo_placamae" type="text" class="validate">
-                <label for="modelo_placamae">Modelo</label>
+            <div class="row">
+                <h5>Fonte</h5>
+                <div class="input-field col s6">
+                    <input id="fonte_marca" type="text" class="validate">
+                    <label for="fonte_marca">Marca</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="fonte_modelo" type="text" class="validate">
+                    <label for="fonte_modelo">Modelo</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <h5>Placa Mãe</h5>
-            <div class="input-field col s6">
-                <input id="marca_placamae" type="text" class="validate">
-                <label for="marca_placamae">Marca</label>
+            <div class="row">
+                <h5>Memória RAM</h5>
+                <div class="input-field col s6">
+                    <input id="memoria_quantidade" type="text" class="validate">
+                    <label for="memoria_quantidade">Quantidade</label>
+                </div>
+                <div class="input-field col s6">
+                    <select id="memoria_capacidade">
+                        <option value="" disabled selected>Capacidade:</option>
+                        <option value="1">250 Mb</option>
+                        <option value="2">500 Mb</option>
+                        <option value="4">1 Gb</option>
+                        <option value="5">2 Gb</option>
+                        <option value="6">4 Gb</option>
+                        <option value="7">8 Gb</option>
+                    </select>
+                </div>
             </div>
-            <div class="input-field col s6">
-                <input id="modelo_placamae" type="text" class="validate">
-                <label for="modelo_placamae">Modelo</label>
+            <div class="row">
+                <h5>HD</h5>
+                <div class="input-field col s6">
+                    <input id="hd_quantidade" type="text" class="validate">
+                    <label for="hd_quantidade">Quantidade</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="hd_capacidade" type="text" class="validate">
+                    <label for="hd_capacidade">Capacidade</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <h5>Memória RAM</h5>
-            <div class="input-field col s6">
-                <input id="memoria_quantidade" type="text" class="validate">
-                <label for="memoria_quantidade">Quantidade</label>
-            </div>
-            <div class="input-field col s6">
-                <select>
-                    <option value="" disabled selected>Capacidade:</option>
-                    <option value="1">250 Mb</option>
-                    <option value="2">500 Mb</option>
-                    <option value="4">1 Gb</option>
-                    <option value="5">2 Gb</option>
-                    <option value="6">4 Gb</option>
-                    <option value="7">8 Gb</option>
-                </select>
+            <div class="row">
+                <h5>Processador</h5>
+                <div class="input-field col s6">
+                    <input id="marca_processador" type="text" class="validate">
+                    <label for="marca_processador">Marca</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="velocidade_processador" type="text" class="validate">
+                    <label for="velocidade_processador">Velocidade</label>
+                </div>
             </div>
 
-        </div>
-        
+            <div class="row center">
+                    <button class="btn waves-effect waves-light purple darken-2" type="submit" name="action">Salvar</button>
+                <button type="reset" class="waves-effect waves-light btn purple darken-2">Limpar</button>
+            </div>
+
+        </form>
+            <script src="js/initialize.js"></script>
+            <script src="js/script.js"></script>
     </div>
 
 
-
-    <script src="js/initialize.js"></script>
   </body>
 </html>
