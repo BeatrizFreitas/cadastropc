@@ -21,6 +21,7 @@ function cadastraComputador() {
         PlacaMaeModelo: placaMaeModelo,
         FonteMarca: fonteMarca,
         FonteModelo: fonteModelo,
+        MemoriaQuantidade: memoriaCapacidade,
         MemoriaCapacidade: memoriaCapacidade,
         HdQuantidade: hdQuantidade,
         HdCapacidade: hdCapacidade,
@@ -29,9 +30,13 @@ function cadastraComputador() {
     }
 
     if(localStorage.getItem("Cadastro") === null) {
-        var objetoConvertidoParaString = JSON.stringify(objetoDeCadastro);
-        var arrayParaCadastroNoLocalStorage = [objetoConvertidoParaString];
-        localStorage.setItem("Cadastro",arrayParaCadastroNoLocalStorage);
+        var arrayDeObjetosCadatrados = [objetoDeCadastro];
+        localStorage.setItem("Cadastro",JSON.stringify(arrayDeObjetosCadatrados));
+    } else {
+        var arrayDeObjetosCadatrados = JSON.parse(localStorage.getItem("Cadastro"));
+        arrayDeObjetosCadatrados.push(objetoDeCadastro);
+        localStorage.setItem("Cadastro",JSON.stringify(arrayDeObjetosCadatrados));
+
     }
 
 
