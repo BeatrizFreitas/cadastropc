@@ -2,24 +2,40 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <title>Cadastro de Computadores</title>
+    <title>Cadastrar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">      
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>   
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="js/vue.js"></script>
+    
 </head>
 
 <body>
     <div id="tabela">
+      <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper #7b1fa2 purple darken-2">
-                <a href="#" class="brand-logo center">Logo</a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <div class="nav-wrapper #424242 grey darken-3 ">
+                <a href="#" class="brand-logo center" >Logo</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="left hide-on-med-and-down ">
                     <li><a href="index.html">Cadastrar</a></li>
+                </ul>
+                <ul class="side-nav #424242 grey darken-3"  id="mobile-demo">
+                    <div class="background">
+                        <img src="img/fundosidenad.png">
+                    </div>
+                <i class="material-icons circle center">airplay</i></a>
+                    <li><a href="cadastros.html" class="white-text name">Computadores Cadastrados</a></li>
+                    <li><a href="index.html" class="white-text name">Cadastrar</a></li>
                 </ul>
             </div>
         </nav>
+      </div>
+
 
         <div class="container">
             <h3 align="center">Computadores Cadastrados</h3>
@@ -60,15 +76,15 @@
                             <td>{{ linha.HdCapacidade }}</td>
                             <td>{{ linha.ProcessadorMarca }}</td>
                             <td>{{ linha.PorcessadorVelocidade }}</td>
-                            <th> <a class="waves-effect waves-light btn modal-trigger" href="#modal1" @click="editarCadastro(linha)"></a></th>
-                            <th><a class="waves-effect waves-light btn" @click="excluirCadastro(linha.Nome)"></a></th>
+                            <th> <a class="modal-trigger" href="#modal1" @click="editarCadastro(linha)"><i class="material-icons">edit</i></a></th>
+                            <th><a @click="excluirCadastro(linha.Nome)"><i class="material-icons">delete</i></a></th>
                         </tr>
                     </template> 
                 </tbody>
             </table>
         </div>
-        <div id="modal1" class="modal">
-            <div class="modal-content" >
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
                 <div class="center">
                     <h4>Cadastro</h4>
                     <h5>Nome: {{ array.Nome }}</h5>
@@ -77,35 +93,66 @@
                             <div class="row">
                                 <div class="input-field col s6">
                                     <input id="last_name" type="text" class="validate active" v-bind:value='array.PlacaMaeMarca'>
-                                    <label for="last_name">Marca da Placa Mãe</label>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.PlacaMaeMarca'>
-                                    <label for="last_name">Marca da Placa Mãe</label>
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.PlacaMaeModelo'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
                                 </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.FonteMarca'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.FonteModelo'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.MemoriaQuantidade'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.MemoriaCapacidade'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.HdQuantidade'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                    <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.HdCapacidade'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.ProcessadorMarca'>
+                                    <label class="active" for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.ProcessadorVelocidade'>
+                                    <label class="active"for="last_name">Marca da Placa Mãe</label>
+                                </div>
+
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
             </div>
         </div>
     </div>
-
   
     <!-- Modal Structure -->
 
-
-
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
     <script src="js/tabela.js"></script> 
-        </div>
-
-
+</div>
+         
 </body>
 
 </html>
+
+

@@ -14,9 +14,7 @@ new Vue({
     },
     created: function() {
         $('select').material_select();
-        $(".button-collapse"cd ).sideNav();
-        $('.modal').modal();
-        Materialize.updateTextFields();
+        $(".button-collapse").sideNav();
     },
     methods: {
         excluirCadastro: function(nome) {

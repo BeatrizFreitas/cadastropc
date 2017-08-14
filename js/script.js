@@ -29,6 +29,7 @@ new Vue({
         $('select').material_select();
     },
     methods: {
+    
         cadastraComputador: function() {
             obj = {
                 Nome : this.nomeInput,
@@ -43,16 +44,34 @@ new Vue({
                 ProcessadorMarca : this.processadorMarcaInput,
                 PorcessadorVelocidade : this.processadorVelocidadeInput,
             }
+
             if (localStorage.getItem("cadastroVue") === null) {
                 var arrayDeCadastro = [ obj ];
                 localStorage.setItem("cadastroVue", JSON.stringify(arrayDeCadastro)); 
-                } else {
-                    var arrayDeCadastro = JSON.parse(localStorage.getItem("cadastroVue"));
-                    arrayDeCadastro.push(obj);
-                    localStorage.setItem("cadastroVue",JSON.stringify(arrayDeCadastro));
+            } 
+            else
+            {
+                //seria bom colocar esta parte em outra função e chamar aqui 
+                var arrayDeCadastro = JSON.parse(localStorage.getItem("cadastroVue"));
+                var qtdDeCadastros = arrayDeCadastro.length;
+                
+                for (var i=0 ; i<qtdDeCadastros ; i++){
+                    if (this.Nome === arrayDeCadastro[i].Nome) {
+                        alert("Computador já cadastrado");
+                        
+                        //colocar algo que trave o código e e submit aqui. break?
+                        //isso é muito importante, senão vai cadastrar mesmo assim
+                        // testar com isso ↓
+                        //break;
+                    }
                 }
+                arrayDeCadastro.push(obj);
+                localStorage.setItem("cadastroVue",JSON.stringify(arrayDeCadastro));
+            }
+
         }
     }
+    
 })
 
 

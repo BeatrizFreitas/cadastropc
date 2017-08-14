@@ -1,6 +1,12 @@
 label {
     color: black !important;
 }
+a{
+   font-family:Avantgarde, sans-serif;
+}
+h3{
+    font-family:FreeMono, monospace;
+}
 
 
 
