@@ -2,7 +2,8 @@ new Vue({
     el:'#tabela',
     data() {
         return {
-            linhas: ''
+            linhas: '',
+            array: ''
         }
     },
     mounted: function() {
@@ -10,9 +11,74 @@ new Vue({
 
         this.linhas = dadosCadastrados;
 
+    },
+    created: function() {
+        $('select').material_select();
+        $(".button-collapse").sideNav();
+        $('.modal').modal();
+        Materialize.updateTextFields();
+    },
+    methods: {
+        excluirCadastro: function(nome) {
+            var computadoresCadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
+            var qtdDeCadastro = computadoresCadastrados.length;
 
-    }
-})
+            for (var i=0 ; i<qtdDeCadastro ; i++){
+                if (nome === computadoresCadastrados[i].Nome) {
+                    var deletarCadastro = computadoresCadastrados.splice(i,1);
+                    break;
+                }
+            }
+            this.linhas = computadoresCadastrados;
+            localStorage.setItem("cadastroVue",JSON.stringify(computadoresCadastrados));
+        },
+        editarCadastro: function(cadastro){
+            $('#modal1').modal('open');
+            this.array = cadastro;
+
+
+        }
+
+
+   }
+})     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+
+
+
+
+
+
+        
+        
+        
+        // editarCadastro: function(nome) {
+        //     var cadastros = JSON.parse(localStorage.getItem("cadastroVue"));
+        //     var qtdDeCadastros = cadastros.length;
+
+        //     for( var i = 0 ; i < qtdDeCadastros ; i++) {
+        //         if( nome === cadastros[i].Nome) {
+        //             alert(cadastros[i].PlacaMaeModelo);
+        //             console.log(cadastros[i]);
+        //         }
+        //     }
+
+        // }   
+   
+
 
 
 

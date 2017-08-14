@@ -23,6 +23,11 @@ new Vue({
             processadorVelocidadeInput: ''
         }
     },
+    created: function() {
+        $(".button-collapse").sideNav();
+        $('.collapsible').collapsible();
+        $('select').material_select();
+    },
     methods: {
         cadastraComputador: function() {
             obj = {

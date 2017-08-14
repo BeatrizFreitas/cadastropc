@@ -6,64 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">      
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>   
     <link rel="stylesheet" href="css/style.css">
     <script src="js/vue.js"></script>
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper #7b1fa2 purple darken-2">
-            <a href="#" class="brand-logo center">Logo</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="index.html">Cadastrar</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="tabela">
+        <nav>
+            <div class="nav-wrapper #7b1fa2 purple darken-2">
+                <a href="#" class="brand-logo center">Logo</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="index.html">Cadastrar</a></li>
+                </ul>
+            </div>
+        </nav>
 
-    <div class="container">
-        <h3 align="center">Computadores Cadastrados</h3>
-    </div><br>
+        <div class="container">
+            <h3 align="center">Computadores Cadastrados</h3>
+        </div><br>
 
-    <div class="container">
-        <table class="striped centered"> 
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Marca da Placa Mãe</th>
-                    <th>Modelo da Placa Mãe</th>
-                    <th>Marca da Fonte</th>
-                    <th>Modelo da Fonte</th>
-                    <th>Quantidade de Memoria</th>
-                    <th>Capacidade da Memória RAM</th>
-                    <th>Quantidade de HDs</th>
-                    <th>Capacidade do HD</th> 
-                    <th>Marca do Processador</th>
-                    <th>Velocidade do Processador</th>
-                </tr>
-            </thead>
-            <tbody id="tabela">
-                <template v-for="linha in linhas"> 
+        <div class="container">
+            <table class="striped centered"> 
+                <thead>
                     <tr>
-                        <td>{{ linha.Nome }}</td>
-                        <td>{{ linha.PlacaMaeMarca  }}</td>
-                        <td>{{ linha.PlacaMaeModelo }}</td>
-                        <td>{{ linha.FonteMarca }}</td>
-                        <td>{{ linha.FonteModelo }}</td>
-                        <td>{{ linha.MemoriaQuantidade }}</td>
-                        <td>{{ linha.MemoriaCapacidade }}</td>
-                        <td>{{ linha.HdQuantidade }}</td>
-                        <td>{{ linha.HdCapacidade }}</td>
-                        <td>{{ linha.ProcessadorMarca }}</td>
-                        <td>{{ linha.PorcessadorVelocidade }}</td>
+                        <th>Nome</th>
+                        <th>Marca da Placa Mãe</th>
+                        <th>Modelo da Placa Mãe</th>
+                        <th>Marca da Fonte</th>
+                        <th>Modelo da Fonte</th>
+                        <!-- <th>Memória</th> -->
+                        <th>Quantidade de Memoria</th>
+                        <th>Capacidade da Memória RAM</th>
+                        <th>Quantidade de HDs</th>
+                        <th>Capacidade do HD</th> 
+                        <th>Marca do Processador</th>
+                        <th>Velocidade do Processador</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
-                </template> 
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <template v-for="linha in linhas"> 
+                        <tr>
+                            <td>{{ linha.Nome }}</td>
+                            <td>{{ linha.PlacaMaeMarca  }}</td>
+                            <td>{{ linha.PlacaMaeModelo }}</td>
+                            <td>{{ linha.FonteMarca }}</td>
+                            <td>{{ linha.FonteModelo }}</td>
+                            <!-- <td>{{ linha.MemoriaQuantidade }} und. - {{ linha.MemoriaCapacidade }}</td> -->
+                            <td>{{ linha.MemoriaQuantidade }}</td>
+                            <td>{{ linha.MemoriaCapacidade }}</td>
+                            <td>{{ linha.HdQuantidade }}</td>
+                            <td>{{ linha.HdCapacidade }}</td>
+                            <td>{{ linha.ProcessadorMarca }}</td>
+                            <td>{{ linha.PorcessadorVelocidade }}</td>
+                            <th> <a class="waves-effect waves-light btn modal-trigger" href="#modal1" @click="editarCadastro(linha)"></a></th>
+                            <th><a class="waves-effect waves-light btn" @click="excluirCadastro(linha.Nome)"></a></th>
+                        </tr>
+                    </template> 
+                </tbody>
+            </table>
+        </div>
+        <div id="modal1" class="modal">
+            <div class="modal-content" >
+                <div class="center">
+                    <h4>Cadastro</h4>
+                    <h5>Nome: {{ array.Nome }}</h5>
+                    <div class="container">
+                        <form>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.PlacaMaeMarca'>
+                                    <label for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate active" v-bind:value='array.PlacaMaeMarca'>
+                                    <label for="last_name">Marca da Placa Mãe</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
     </div>
-    
-    <script src="js/initialize.js"></script>
+
+  
+    <!-- Modal Structure -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
     <script src="js/tabela.js"></script> 
         </div>
 
