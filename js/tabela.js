@@ -14,7 +14,7 @@ new Vue({
     },
     created: function() {
         $('select').material_select();
-        $(".button-collapse").sideNav();
+        $(".button-collapse"cd ).sideNav();
         $('.modal').modal();
         Materialize.updateTextFields();
     },
