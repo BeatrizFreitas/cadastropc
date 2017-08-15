@@ -3,7 +3,7 @@ new Vue({
     data() {
         return {
             linhas: '',
-            array: ''
+            array: '',
         }
     },
     mounted: function() {
@@ -32,16 +32,44 @@ new Vue({
         },
         editarCadastro: function(cadastro){
             $('#modal1').modal('open');
-            this.array = cadastro;
+            this.array = cadastro; // ???
+        },
+   
 
-
-        }
-
-
-   }
-})     
+           substituirCadastro: function(){
         
+            var cadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
+            var qtdComputadores = cadastrados.length;
+
+    
+            for (var i=0 ; i<qtdDeCadastro ; i++){
+                if (array.Nome === cadastrados.Nome) {
+                    var posicaoDoCadastro = i;
+                    break;
+                }
+            }
+
+            cadastrados[posicaoDoCadastro].PlacaMaeMarca = this.array.PlacaMaeMarca; 
+            cadastrados[posicaoDoCadastro].PlacaMaeModelo = this.array.PlacaMaeModelo;
+            cadastrados[posicaoDoCadastro].FonteMarca= this.array.FonteMarca;
+            cadastrados[posicaoDoCadastro].FonteModelo= this.array.FonteModelo;
+            cadastrados[posicaoDoCadastro].MemoriaQuantidade= this.array.MemoriaQuantidade;
+            cadastrados[posicaoDoCadastro].MemoriaCapacidade= this.array.MemoriaCapacidade;
+            cadastrados[posicaoDoCadastro].HdQuantidade= this.array.HdQuantidade;
+            cadastrados[posicaoDoCadastro].HdCapacidade= this.array.HdCapacidade;
+            cadastrados[posicaoDoCadastro].ProcessadorMarca= this.array.ProcessadorMarca;
+            cadastrados[posicaoDoCadastro].ProcessadorVelocidade= this.array.ProcessadorVelocidade;            
         
+            this.linhas = cadastrados;
+            
+            localStorage.setItem("cadastroVue",JSON.stringify(cadastrados));
+            event.preventDefault();
+            
+           }
+    }
+         
+        
+    })   
         
         
         

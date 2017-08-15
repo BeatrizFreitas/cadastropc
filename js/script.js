@@ -51,24 +51,23 @@ new Vue({
             } 
             else
             {
-                //seria bom colocar esta parte em outra função e chamar aqui 
                 var arrayDeCadastro = JSON.parse(localStorage.getItem("cadastroVue"));
                 var qtdDeCadastros = arrayDeCadastro.length;
+                var cadastrado = "0";
                 
                 for (var i=0 ; i<qtdDeCadastros ; i++){
-                    if (this.Nome === arrayDeCadastro[i].Nome) {
+                    if (this.nomeInput === arrayDeCadastro[i].Nome) {
                         alert("Computador já cadastrado");
-                        
-                        //colocar algo que trave o código e e submit aqui. break?
-                        //isso é muito importante, senão vai cadastrar mesmo assim
-                        // testar com isso ↓
-                        //break;
+                        var cadastrado = "1";
+						event.preventDefault();
                     }
                 }
-                arrayDeCadastro.push(obj);
-                localStorage.setItem("cadastroVue",JSON.stringify(arrayDeCadastro));
-            }
+				if (cadastrado === "0") {
+					arrayDeCadastro.push(obj);
+					localStorage.setItem("cadastroVue",JSON.stringify(arrayDeCadastro));
+				}
 
+            }
         }
     }
     

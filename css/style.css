@@ -7,6 +7,12 @@ a{
 h3{
     font-family:FreeMono, monospace;
 }
+.parallax-container {
+    opacity:.70; ;
+  }
+.menu{
+     color:white;
+  }
 
 
 
