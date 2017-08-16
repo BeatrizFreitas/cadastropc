@@ -7,14 +7,12 @@ new Vue({
         }
     },
     mounted: function() {
-        var dadosCadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
-
-        this.linhas = dadosCadastrados;
-
+        this.linhas = JSON.parse(localStorage.getItem("cadastroVue"));
+        $(".button-collapse").sideNav();
     },
     created: function() {
         $('select').material_select();
-        $(".button-collapse").sideNav();
+        // $(".button-collapse").sideNav();
     },
     methods: {
         excluirCadastro: function(nome) {
@@ -34,20 +32,17 @@ new Vue({
             $('#modal1').modal('open');
             this.array = cadastro; // ???
         },
-   
-
-           substituirCadastro: function(){
-        
+        substituirCadastro: function(){
             var cadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
             var qtdComputadores = cadastrados.length;
 
-    
-            for (var i=0 ; i<qtdDeCadastro ; i++){
-                if (array.Nome === cadastrados.Nome) {
+            for (var i=0 ; i< qtdComputadores ; i++){
+                if (this.array.Nome === cadastrados[i].Nome) {
                     var posicaoDoCadastro = i;
                     break;
                 }
             }
+            objCadastradoAnteriormente = cadastrados[posicaoDoCadastro];
 
             cadastrados[posicaoDoCadastro].PlacaMaeMarca = this.array.PlacaMaeMarca; 
             cadastrados[posicaoDoCadastro].PlacaMaeModelo = this.array.PlacaMaeModelo;
@@ -60,16 +55,14 @@ new Vue({
             cadastrados[posicaoDoCadastro].ProcessadorMarca= this.array.ProcessadorMarca;
             cadastrados[posicaoDoCadastro].ProcessadorVelocidade= this.array.ProcessadorVelocidade;            
         
-            this.linhas = cadastrados;
             
+            //this.array = objCadastradoAnteriormente;
             localStorage.setItem("cadastroVue",JSON.stringify(cadastrados));
-            event.preventDefault();
+            //event.preventDefault();
             
-           }
+        }
     }
-         
-        
-    })   
+})   
         
         
         

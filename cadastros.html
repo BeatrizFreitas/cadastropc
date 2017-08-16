@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">      
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>   
+    
+    
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="js/vue.js"></script>
@@ -93,6 +93,8 @@
                                     <input  placeholder="" id="last_modeloplaca" type="text" class="validate active" v-model="array.PlacaMaeModelo" v-bind:value='array.PlacaMaeModelo' >
                                     <label class="active" for="last_modeloplaca">Modelo da Placa Mãe</label>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="input-field col s6">
                                     <input  placeholder="" id="last_marcafonte" type="text" class="validate active" v-model="array.FonteMarca" v-bind:value='array.FonteMarca' >
                                     <label class="active" for="last_marcafonte">Marca da Fonte</label>
@@ -101,12 +103,12 @@
                                     <input  placeholder="" id="last_modelofonte" type="text" class="validate active" v-model="array.FonteModelo" v-bind:value='array.FonteModelo' >
                                     <label class="active" for="last_modelofonte">Modelo da Fonte</label>
                                 </div>
-                                <div class="row">
+                            </div>
+                            <div class="row">
                                 <div class="input-field col s6">
                                     <input  placeholder="" id="last_memoriaquantidade" type="text" class="validate active" v-model="array.MemoriaQuantidade" v-bind:value='array.MemoriaQuantidade'>
                                     <label class="active" for="last_name">Memoria-Quantidade</label>
                                 </div>
-
                                 <div class="input-field col s6">                          
                                     <select class="browser-default" id="last_capacidadememoria"  v-model="array.MemoriaCapacidade" v-bind:value='array.MemoriaCapacidade'>
                                         <option for="last_capacidadememoria">250 Mb</option>
@@ -117,8 +119,8 @@
                                         <option for="last_capacidadememoria">8 Gb</option>
                                     </select>                                        
                                 </div> 
-                                </div>
-                                <div class="row">
+                            </div>
+                            <div class="row">
                                 <div class="input-field col s6">
                                     <input  placeholder="" id="last_name" type="text" class="validate active" v-model="array.HdQuantidade" v-bind:value='array.HdQuantidade' >
                                     <label class="active" for="last_hdquantidade">HD-Quantidade</label>
@@ -127,7 +129,8 @@
                                     <input  placeholder="" id="last_name" type="text" class="validate active" v-model="array.HdCapacidade" v-bind:value='array.HdCapacidade'>
                                     <label class="active" for="last_hdcapacidade">HD-Capacidade</label>
                                 </div>
-                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="input-field col s6">
                                     <input  placeholder="" id="last_name" type="text" class="validate active"  v-model="array.ProcessadorMarca" v-bind:value='array.ProcessadorMarca'>
                                     <label class="active" for="last_marcaprocessador">Marca do Processador</label>
@@ -136,15 +139,15 @@
                                     <input  placeholder="" id="last_name" type="text" class="validate active" v-model="array.ProcessadorVelocidade" v-bind:value='array.ProcessadorVelocidade' >
                                     <label class="active"for="last_velocidadeprocessador">Velocidade do Processador</label>
                                 </div>
-
                             </div>
+
+                            <button class="btn waves-effect waves-light grey darken-3"  type="submit" name="action">Salvar</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                    <button class="modal-action modal-close btn waves-effect waves-light grey darken-3 ">OK </a>
-                        <button class="btn waves-effect waves-light grey darken-3">Salvar</button>
+                    <button class="modal-action modal-close btn waves-effect waves-light grey darken-3" @onclick="cancelar()">OK</button>
             </div>
         </div>
     </div>
