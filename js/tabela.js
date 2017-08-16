@@ -6,14 +6,14 @@ new Vue({
             array: '',
         }
     },
+
     mounted: function() {
         this.linhas = JSON.parse(localStorage.getItem("cadastroVue"));
-        $(".button-collapse").sideNav();
     },
     created: function() {
-        $('select').material_select();
-        // $(".button-collapse").sideNav();
+        $(".button-collapse").sideNav();
     },
+
     methods: {
         excluirCadastro: function(nome) {
             var computadoresCadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
@@ -56,9 +56,9 @@ new Vue({
             cadastrados[posicaoDoCadastro].ProcessadorVelocidade= this.array.ProcessadorVelocidade;            
         
             
-            //this.array = objCadastradoAnteriormente;
+            
             localStorage.setItem("cadastroVue",JSON.stringify(cadastrados));
-            //event.preventDefault();
+       
             
         }
     }

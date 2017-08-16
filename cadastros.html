@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">      
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    
-    
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="js/vue.js"></script>
@@ -19,21 +17,19 @@
       <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper #424242 grey darken-3 ">
-                <a href="#" class="brand-logo center" >Logo</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="login.html" class="brand-logo center"> <i class="material-icons">dashboard</i></a></li>
+              <!--  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
                 <ul class="left hide-on-med-and-down ">
-                    <li><a href="index.html">Cadastrar</a></li>
-                    <li><a href="login.html"> <i class="material-icons">dashboard</i></a></li>
-                        
+                    <li><a href="index.html">Novo Cadastro</a></li>
                 </ul>
                 <ul class="side-nav #424242 grey darken-3"  id="mobile-demo">
                     <div class="background">
-                        <img src="">
+                      <img src="">
                     </div>
-                <i class="material-icons circle center">airplay</i></a>
-                    <li><a href="cadastros.html" class="white-text name">Computadores Cadastrados</a></li>
-                    <li><a href="index.html" class="white-text name">Cadastrar</a></li>
+                      <li><a href="cadastros.html" class="white-text name">Computadores Cadastrados</a></li>
+                      <li><a href="index.html" class="white-text name">Cadastrar</a></li>
                 </ul>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a
             </div>
         </nav>
       </div>
@@ -106,7 +102,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input  placeholder="" id="last_memoriaquantidade" type="text" class="validate active" v-model="array.MemoriaQuantidade" v-bind:value='array.MemoriaQuantidade'>
+                                    <input  placeholder="" id="last_memoriaquantidade" type="number" class="validate active" v-model="array.MemoriaQuantidade" v-bind:value='array.MemoriaQuantidade'>
                                     <label class="active" for="last_name">Memoria-Quantidade</label>
                                 </div>
                                 <div class="input-field col s6">                          
@@ -122,7 +118,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input  placeholder="" id="last_name" type="text" class="validate active" v-model="array.HdQuantidade" v-bind:value='array.HdQuantidade' >
+                                    <input  placeholder="" id="last_name" type="number" class="validate active" v-model="array.HdQuantidade" v-bind:value='array.HdQuantidade' >
                                     <label class="active" for="last_hdquantidade">HD-Quantidade</label>
                                 </div>
                                 <div class="input-field col s6">
@@ -147,19 +143,18 @@
                 </div>
             </div>
             <div class="modal-footer">
-                    <button class="modal-action modal-close btn waves-effect waves-light grey darken-3" @onclick="cancelar()">OK</button>
+                    <button class="modal-action modal-close btn waves-effect waves-light grey darken-3"><a href="cadastros.html">Cancelar</a></button>
             </div>
         </div>
     </div>
-  
-    <!-- Modal Structure -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+           
+    <!-- Modal Structure -->
     <script src="js/tabela.js"></script> 
 </div>
-         
+  
 </body>
 
 </html>
