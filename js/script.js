@@ -16,7 +16,7 @@ new Vue({
                 {value: "4 Gb", text:"4 Gb"},
                 {value: "8 Gb", text:"8 Gb"},
             ],
-            selecionado: '',
+            selecionado: '', //recebe o que foi selecionado no select de capacidade de memória
             hdQuantidadeInput: '',
             hdCapacidadeInput: '',
             processadorMarcaInput: '',
@@ -24,13 +24,14 @@ new Vue({
         }
     },
     created: function() {
+        //initialize do materialize
         $(".button-collapse").sideNav();
         $('.collapsible').collapsible();
         $('select').material_select();
     },
     methods: {
-    
         cadastraComputador: function() {
+            //o obj recebe os dados inputados no form
             obj = {
                 Nome : this.nomeInput,
                 PlacaMaeMarca : this.placaMaeMarcaInput, 
@@ -42,35 +43,43 @@ new Vue({
                 HdQuantidade : this.hdQuantidadeInput,
                 HdCapacidade : this.hdCapacidadeInput,
                 ProcessadorMarca : this.processadorMarcaInput,
-                PorcessadorVelocidade : this.processadorVelocidadeInput,
+                ProcessadorVelocidade : this.processadorVelocidadeInput,
             }
 
+            //verifica se há cadastro no local storage
+            //caso não haja, insere o objeto com os dados em um array
+            //e os armazena no local storage
             if (localStorage.getItem("cadastroVue") === null) {
                 var arrayDeCadastro = [ obj ];
                 localStorage.setItem("cadastroVue", JSON.stringify(arrayDeCadastro)); 
             } 
             else
             {
+                //caso haja cadastro, atribui a arrayDeCadastro o que foi armazenado
                 var arrayDeCadastro = JSON.parse(localStorage.getItem("cadastroVue"));
                 var qtdDeCadastros = arrayDeCadastro.length;
                 var cadastrado = "0";
                 
+                //verifica se o computador com o nome inputado já foi cadastrado anteriormente
+                //caso tenha sido, não armazena novamente
                 for (var i=0 ; i<qtdDeCadastros ; i++){
                     if (this.nomeInput === arrayDeCadastro[i].Nome) {
                         alert("Computador já cadastrado");
                         var cadastrado = "1";
-						event.preventDefault();
+                        event.preventDefault();
                     }
                 }
-				if (cadastrado === "0") {
-					arrayDeCadastro.push(obj);
-					localStorage.setItem("cadastroVue",JSON.stringify(arrayDeCadastro));
-				}
+                
+                //caso não exista computador com esse nome, insere no array com push
+                //e faz o setItem novamente para sobrescrever no local storage
+                if (cadastrado === "0") {
+                    arrayDeCadastro.push(obj);
+                    localStorage.setItem("cadastroVue",JSON.stringify(arrayDeCadastro));
+                }
 
             }
         }
     }
-    
 })
 
 

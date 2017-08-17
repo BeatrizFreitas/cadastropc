@@ -14,107 +14,15 @@
   </head>
 
   <body>
-    <div class="navbar-fixed">
-     <nav>
-        <div class="nav-wrapper #424242 grey darken-3 ">
-            <a href="login.html" class="brand-logo center"> <i class="material-icons">dashboard</i></a></li>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-              <ul class="left hide-on-med-and-down ">
-                  <li><a href="cadastros.html">Computadores Cadastrados</a></li>
-              </ul>
-              <ul class="side-nav #424242 grey darken-3"  id="mobile-demo">
-                 <div class="background">
-                    <img src="img/fundoside.png">
-                 </div>
-                <a href="login.html"><i class="material-icons circle center white-text name">dashboard</i></a>
-                <li><a href="cadastros.html" class="white-text name">Computadores Cadastrados</a></li>
-                <li><a href="index.html" class="white-text name">Cadastrar</a></li>
-              </ul>
-        </div>
-     </nav>
-  </div>
-
-    <div class="container">
-    <h3 align="center" font-family:" Avantgarde, sans-serif"> Cadastro de Computadores</h3>
-    </div><br>
-
-    <div class="container">
-
-        <form id="formulario" v-on:submit="cadastraComputador">
-            <div class="row">
-                <div class="input-field col s4 offset-s4">
-                    <i class="material-icons prefix">computer</i>
-                    <input placeholder ="ID do Computador"id="nome_pc" type="text" class="validate" v-model="nomeInput" required>
-                    <label for="nome_pc">Nome</label>
-                </div>
-            </div> 
-            <div class="row">
-                <h5>Placa Mãe</h5>
-                <div class="input-field col s6">
-                    <input id="placamae_marca" type="text" class="validate" v-model="placaMaeMarcaInput" required>
-                    <label for="placamae_marca">Marca</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="placamae_modelo" type="text" class="validate" v-model="placaMaeModeloInput" required>
-                    <label for="placamae_modelo">Modelo</label>
-                </div>
-            </div>
-            <div class="row">
-                <h5>Fonte</h5>
-                <div class="input-field col s6">
-                    <input id="fonte_marca" type="text" class="validate" v-model="fonteMarcaInput" required>
-                    <label for="fonte_marca">Marca</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="fonte_modelo" type="text" class="validate" v-model="fonteModeloInput" required>
-                    <label for="fonte_modelo">Modelo</label>
-                </div>
-            </div>
-            <div class="row">
-                <h5>Memória RAM</h5>
-                <div class="input-field col s6">
-                    <input id="memoria_quantidade" type="number" v-model="memoriaQuantidadeInput" class="validate" required>
-                    <label for="memoria_quantidade">Quantidade</label>
-                </div>
-                <div class="input-field col s6">
-                    <select class="browser-default" id="memoria_capacidade" v-model="selecionado" required>
-                        <option value="" disabled selected>Capacidade:</option>
-                        <option v-for="memoria in memoriaCapacidadeInput" v-bind:value="memoria.value">{{ memoria.text }}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <h5>HD</h5>
-                <div class="input-field col s6">
-                    <input id="hd_quantidade" type="number" v-model="hdQuantidadeInput" class="validate" required>
-                    <label for="hd_quantidade">Quantidade</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="hd_capacidade" type="text" v-model="hdCapacidadeInput" class="validate" required>
-                    <label for="hd_capacidade">Capacidade</label>
-                </div>
-            </div>
-            <div class="row">
-                <h5>Processador</h5>
-                <div class="input-field col s6">
-                    <input id="marca_processador" type="text" v-model="processadorMarcaInput" class="validate">
-                    <label for="marca_processador">Marca</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="velocidade_processador" type="text" v-model="processadorVelocidadeInput" class="validate">
-                    <label for="velocidade_processador">Velocidade</label>
-                </div>
-            </div>
-
-            <div class="row center">
-                <button class="btn waves-effect waves-light grey darken-3">Salvar</button>
-                <button type="reset" class="waves-effect waves-light btn grey darken-3">Limpar</button>
-            </div>
-
-        </form>
-        
-            <script src="js/script.js"></script>
+     <div class="parallax-container">
+       <div class="parallax"><img src="img/fundo.png"></div>
+     </div>
+     <div class="section grey darken-3 ">        
+       <div class="row container menu center">
+          <h3 class="header">Controle de Computadores</h3>
+          <a href= "cadastros.html" class="waves-effect waves-light btn grey darken-2 ">Entrar</a>
+       </div>
     </div>
-
+    <script src="js/initialize.js"></script>
   </body>
 </html>

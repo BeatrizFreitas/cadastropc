@@ -8,42 +8,51 @@ new Vue({
     },
 
     mounted: function() {
+        //recebe os dados do local storage ao montar a página
         this.linhas = JSON.parse(localStorage.getItem("cadastroVue"));
     },
     created: function() {
+        //initialize do materialize
         $(".button-collapse").sideNav();
     },
-
     methods: {
         excluirCadastro: function(nome) {
+            //recebe os dados armazenados no local storage e o tamanho do array
             var computadoresCadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
             var qtdDeCadastro = computadoresCadastrados.length;
 
+            //encontra o objeto que contém o nome do que será excluido e usa splice para 
+            //retirar o objeto do array. break para sair do for
             for (var i=0 ; i<qtdDeCadastro ; i++){
                 if (nome === computadoresCadastrados[i].Nome) {
                     var deletarCadastro = computadoresCadastrados.splice(i,1);
                     break;
                 }
             }
+            
+            //armazena novamente no local storage sobrescrevendo o que estava lá anteriormente
             this.linhas = computadoresCadastrados;
             localStorage.setItem("cadastroVue",JSON.stringify(computadoresCadastrados));
         },
         editarCadastro: function(cadastro){
-            $('#modal1').modal('open');
-            this.array = cadastro; // ???
+            //abre o modal com os dados do cadastro a ser editado
+            $('#modal1').openModal();
+            this.array = cadastro;
         },
         substituirCadastro: function(){
+            //recebe os dados armazenados no local storage e o tamanho do array
             var cadastrados = JSON.parse(localStorage.getItem("cadastroVue"));
             var qtdComputadores = cadastrados.length;
 
+            //encontra o objeto que contém o nome do que será substituido e recebe sua posição no array
             for (var i=0 ; i< qtdComputadores ; i++){
                 if (this.array.Nome === cadastrados[i].Nome) {
                     var posicaoDoCadastro = i;
                     break;
                 }
             }
-            objCadastradoAnteriormente = cadastrados[posicaoDoCadastro];
 
+            //atualiza os dados do cadastro e armazena novamente no local storage
             cadastrados[posicaoDoCadastro].PlacaMaeMarca = this.array.PlacaMaeMarca; 
             cadastrados[posicaoDoCadastro].PlacaMaeModelo = this.array.PlacaMaeModelo;
             cadastrados[posicaoDoCadastro].FonteMarca= this.array.FonteMarca;
@@ -54,29 +63,20 @@ new Vue({
             cadastrados[posicaoDoCadastro].HdCapacidade= this.array.HdCapacidade;
             cadastrados[posicaoDoCadastro].ProcessadorMarca= this.array.ProcessadorMarca;
             cadastrados[posicaoDoCadastro].ProcessadorVelocidade= this.array.ProcessadorVelocidade;            
-        
-            
-            
+
             localStorage.setItem("cadastroVue",JSON.stringify(cadastrados));
-       
-            
         }
     }
-})   
-        
-        
-        
-        
-        
-        
-        
-        
-        
+})
 
         
-
-
-
+        
+        
+        
+        
+        
+        
+        
 
 
 
